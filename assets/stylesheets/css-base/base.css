@@ -1,0 +1,227 @@
+/****Supporting Variables****/
+/********SHADING********/
+/********SPACING********/
+/****Inner****/
+/****Outer****/
+/****Config****/
+/********THEME********/
+/****Typography****/
+/****Elements****/
+/********BREAKPOINTS********/
+/********COLUMNS********/
+/****HTML Base****/
+/****Mixins****/
+/*************************************
+***********WIDTH & HEIGHT************
+************************************/
+/*************************************
+***********POSITION******************
+************************************/
+/****Base****/
+/****XY****/
+/****Breakpoint Concious****/
+/****Justify****/
+/****Align Items****/
+/*************************************
+***********CONTAINERS****************
+************************************/
+/****Base****/
+/****Breakpoint Concious****/
+/****Hide Element****/
+/****Prevent Wrapping****/
+/****Allow Wrapping****/
+/*************************************
+***********PADDING*******************
+************************************/
+/****Defaults****/
+/****Breakpoint Concious****/
+/*************************************
+***********MARGIN*******************
+************************************/
+/****Defaults****/
+/****Breakpoint Concious****/
+/*************************************
+***********TYPOGRAPHY****************
+************************************/
+/****Breakpoint Concious Font Size****/
+/****Breakpoint Concious Line Height****/
+/****Breakpoint Concious Font Weight****/
+/****Breakpoint Concious Alignment****/
+/****Components****/
+/****Buttons, Icons, Accents****/
+/**Primary Navigation**/
+/****PRIMARY NAVIGATION****/
+/****Primary Navigation****/
+/****Handheld Navigation****/
+/****CONTENT COMPONENTS****/
+/****Content Panels****/
+/****Content Cards****/
+/**Card Options**/
+/*Small*/
+/*Medium*/
+/*Heavy*/
+/****PANELS****/
+/****DEPRECIATE THIS****/
+/****CARDS****/
+html {
+  font-family: "Arial", sans-serif;
+  font-size: 22px;
+  line-height: 1.6;
+  color: #363636;
+  background-color: #EDF7F6;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #363636;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+/*******************
+        RESETS
+ *******************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, button,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  border: 0;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/*******************
+ Box Sizing
+ *******************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*******************
+ Lists
+ *******************/
+/*******************
+ Forms and buttons
+ *******************/
+input,
+textarea,
+select,
+button {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  border: none;
+}
+
+/* I usually expand input and textarea to full-width */
+input[type=text],
+textarea {
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: transparent;
+}
+
+/* More friendly border */
+input,
+textarea,
+button {
+  /*border: 1px solid gray;*/
+}
+
+/* Some defaults for one-liner buttons */
+button {
+  padding: 0.6rem;
+  border-radius: 0;
+  /*line-height: 1;*/
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button * {
+  pointer-events: none;
+}
+
+/***********************************
+ Easy responsive for media elements
+ ***********************************/
+img,
+svg,
+iframe,
+video,
+object,
+embed {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: inherit;
+}
+
+/*# sourceMappingURL=base.css.map */

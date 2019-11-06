@@ -1,6 +1,13 @@
 
 export default {
   mode: 'universal',
+   generate: {
+    dir: 'dist'
+  },
+  
+  router: {
+    base: process.env.DEPLOY_ENV === 'STATIC' ? '/photography-portfolio-website/' : '/'
+  },
   /*
   ** Headers of the page
   */
@@ -18,16 +25,20 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#134576' },
   /*
   ** Global CSS
   */
   css: [
+    '~assets/stylesheets/css-base/base.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/masterResolver.js',
+    '~/plugins/globalComponents.js',
+    '~/plugins/helperFunctions.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -48,7 +59,7 @@ export default {
   },
   styleResources: {
     scss: ['assets/stylesheets/main.scss']
-  }
+  },
   /*
   ** Build configuration
   */
