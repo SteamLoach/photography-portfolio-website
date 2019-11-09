@@ -1,15 +1,14 @@
+/********SHADING********/
+/********SPACING********/
+/****Inner****/
+/****Outer****/
 /****Supporting Variables****/
 /********SHADING********/
 /********SPACING********/
 /****Inner****/
 /****Outer****/
 /****Config****/
-/********THEME********/
-/****Typography****/
-/****Elements****/
-/********BREAKPOINTS********/
 /********COLUMNS********/
-/****HTML Base****/
 /****Mixins****/
 /*************************************
 ***********WIDTH & HEIGHT************
@@ -43,16 +42,13 @@
 /*************************************
 ***********TYPOGRAPHY****************
 ************************************/
+/****Standard Typography Flow Format****/
 /****Breakpoint Concious Font Size****/
 /****Breakpoint Concious Line Height****/
 /****Breakpoint Concious Font Weight****/
 /****Breakpoint Concious Alignment****/
 /****Components****/
 /****Buttons, Icons, Accents****/
-/**Primary Navigation**/
-/****PRIMARY NAVIGATION****/
-/****Primary Navigation****/
-/****Handheld Navigation****/
 /****CONTENT COMPONENTS****/
 /****Content Panels****/
 /****Content Cards****/
@@ -64,16 +60,18 @@
 /****DEPRECIATE THIS****/
 /****CARDS****/
 html {
-  font-family: "Arial", sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-size: 22px;
   line-height: 1.6;
   color: #363636;
   background-color: #EDF7F6;
 }
 
-body {
+html, body {
   position: relative;
+  max-width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1,
@@ -119,11 +117,6 @@ time, mark, audio, video {
   margin-block-start: 0;
   margin-block-end: 0;
   border: 0;
-}
-
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 /*******************

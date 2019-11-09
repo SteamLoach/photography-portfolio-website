@@ -15,6 +15,7 @@ export default {
     } else {
       state[content.target] = this.$masterResolver(content.output) ;
     }
+     
   },
   
 }

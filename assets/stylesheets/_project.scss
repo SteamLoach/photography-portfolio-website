@@ -1,0 +1,14 @@
+////Sidebar width
+%sidebar-scale {
+  @include column-scale (
+    $default: 24,
+    $on-laptop: 6,
+  );
+}
+
+%body-content-scale {
+  @include column-scale (
+    $default: 24,
+    $on-laptop: 18,
+  );
+}

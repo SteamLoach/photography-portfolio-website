@@ -21,21 +21,25 @@ const masterResolver = (contentModel, counter) => {
   
   //Function body
   Object.keys(contentModel).forEach(key => {
-        if (key !== 'system' && key !== 'elements') {
-            
-          let type = contentModel.elements[key].type ;
+        if (key !== 'system' 
+            && key !== '_raw' 
+            && key !== '_config'
+           ) {
+          
+          //let type = contentModel.elements[key].type ;
+          let type = contentModel[key].type ;
           let counter = 0 ;
           
           if (type === 'text' || type === 'rich_text') {
             resolve(key, contentModel[key].value) ; 
           }
           else if (type === 'asset') {
-            resolve(key, contentModel[key].assets.map(asset => {
+            resolve(key, contentModel[key].value.map(asset => {
               return {
                 url: asset.url,
                 name: asset.name,
                 description: asset.description,
-                id: (contentModel[key].assets.indexOf(asset) + 1)
+                key: (contentModel[key].value.indexOf(asset) + 1)
               } 
             })) ; 
           }
@@ -46,8 +50,10 @@ const masterResolver = (contentModel, counter) => {
             }) ; 
             resolve(key, optionsObject) ; 
           }
+          
           else if (type === 'modular_content') {
-            resolve(key, contentModel[key].map(obj => {
+            
+            resolve(key, contentModel[key].value.map(obj => {
                 counter++
                 return masterResolver(obj, counter) ;  
             })) ; 
