@@ -28,6 +28,8 @@
 
 <script>
 
+import {mapMutations} from 'vuex'; 
+  
 export default {
   
   computed: {
@@ -40,6 +42,12 @@ export default {
     classExtensions: function() {
       return this.$store.state.navigation.primaryNavigation;
     }
+  },
+  
+  methods: {
+    ...mapMutations({
+      closeNav: '/navigation/closeNav',
+    })
   }
   
 }
@@ -51,6 +59,7 @@ export default {
 
   .primary-navigation {
     
+    z-index: 10;
     //Positioning
     @include position(
       fixed,
@@ -120,7 +129,7 @@ export default {
         border-bottom: 2px solid $border-color;
       }
     }
-    
+        
     .svg-icon {
       width: $space-light;
       height: $space-light;

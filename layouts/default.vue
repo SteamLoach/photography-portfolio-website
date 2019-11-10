@@ -6,6 +6,10 @@
     
     <!--Body Content-->
     <section class="body-content">
+      <span class="navigation-toggle"
+            @click="toggleNav">
+        <navigation-toggle :state="navState">Menu</navigation-toggle>
+      </span>
       <nuxt />
     </section>
     
@@ -14,13 +18,30 @@
 
 <script>
 
+import {mapMutations} from 'vuex'; 
+  
 import primaryNavigation from '~/components/navigation/primary-navigation.vue'
+import navigationToggle from '~/components/navigation/navigation-toggle.vue'
 
 export default {
   
   components: {
     primaryNavigation,
+    navigationToggle,
+  },
+  
+  computed: {
+    navState: function() {
+      return this.$store.state.navigation.primaryNavigation;
+    }
+  },
+  
+  methods: {
+    ...mapMutations({
+      toggleNav: 'navigation/toggleNav'
+    })
   }
+  
   
 }
 
@@ -32,13 +53,18 @@ export default {
     
   .body-content {
     @extend %body-content-scale;
-    height: 2000px;
     margin-left: auto;
     
-    background: $brand-2;
+    .navigation-toggle {
+      z-index: 10;
+      position: absolute;
+        right: 0;
+      @include margin-scale(
+        xy,
+        $default: $space-lighter,
+        $on-tablet: $outer-space-lightest,
+      );
+    }
   }
-  
-  
-  
   
 </style>

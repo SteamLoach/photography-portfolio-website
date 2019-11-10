@@ -19,6 +19,12 @@ export const actions = {
       mutation: 'cms/resolveToStore',
       module: 'cms',
     });
+    await dispatch('cms/getContentByModel', {
+      model: 'album',
+      mutation: 'cms/resolveToStore',
+      module: 'cms',
+      splitItems: false
+    });
   },
 }
 

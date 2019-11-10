@@ -12,3 +12,10 @@
     $on-laptop: 18,
   );
 }
+
+
+button {
+  font-size: 1rem;
+  color: $border-color;
+  border: 2px solid $border-color;
+}

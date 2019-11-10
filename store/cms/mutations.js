@@ -8,7 +8,7 @@ export default {
     if (content.asArray) {
       state[content.target] = content.output.map(item => {
         let resolvedItem = this.$masterResolver(item);
-        resolvedItem.id = content.output.indexOf(item) + 1;
+        resolvedItem.key = content.output.indexOf(item) + 1;
         resolvedItem.codename = item.system.codename ;
         return resolvedItem ;
       })
