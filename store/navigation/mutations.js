@@ -6,6 +6,7 @@ export default {
   },
     
   closeNav(state) {
+    console.log("Benis") ;
     state.primaryNavigation['is-active'] = false ; 
   },
     

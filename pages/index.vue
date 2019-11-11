@@ -2,11 +2,11 @@
 
   <section class="album-preview">
     
-    <div class="cover-image"
+    <div class="album-cover"
          :style="coverImage">
       <div class="next-album"
            @click="nextAlbum">
-        <img src="~/assets/right-arrow.webp">
+        <img src="~/assets/right-arrow-white.webp">
       </div>
     
       <span class="album-counter">
@@ -90,7 +90,7 @@ export default {
     min-height: 100vh;
     @include row(between, center);
     
-    .cover-image {
+    .album-cover {
       position: relative;
       @include position-from($tablet, absolute);
       @include height-scale(
@@ -109,7 +109,8 @@ export default {
     @include column-scale(
       $default: 24,
       $on-tablet: 10,
-      $on-laptop: 8,
+      $on-laptop: 10,
+      $on-desktop: 8,
     );
     
     @include content-card(medium);
@@ -126,14 +127,18 @@ export default {
       right: 0;  
     @include content-card(light);
     font-size: 1rem;
+    color: $offset-font-color;
+    background-color: $shade-darker;
   }
   
   .next-album {
+    @include hidden-from($tablet);
     position: absolute;
       bottom: 0;
       left: 0;
     display: inline-block;
     @include content-card(light);
+    background-color: $shade-darkest;
     &:hover {cursor: pointer;}
   }
   
@@ -156,7 +161,8 @@ export default {
     .next-album {
       left: -25%;
       bottom: 35%;
-      
+      display: inline-block;
+      background-color: $page-background;
     }
   }
   

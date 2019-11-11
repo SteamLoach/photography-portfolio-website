@@ -10,15 +10,17 @@
     <ul class="nav-link-wrapper">
       <li class="menu-icon"><img :src="Content.menuIcon[0].url"></li>
       <li v-for ="navLink in Content.navLinks">
-        <nuxt-link :to="navLink.route">{{ navLink.title }}</nuxt-link>
+        <span @click="closeNav">
+          <nuxt-link :to="navLink.route">{{ navLink.title }}</nuxt-link>
+        </span>
       </li>
     </ul>
     
     <ul class="social-icon-wrapper">
       <li v-for="socialIcon in Settings.socialMediaLinks">
-        <nuxt-link :to="socialIcon.route">
+        <a :href="socialIcon.route">
           <svg-loader :icon="socialIcon.reference"></svg-loader>
-        </nuxt-link>
+        </a>
       </li>
     </ul>
     
@@ -46,7 +48,7 @@ export default {
   
   methods: {
     ...mapMutations({
-      closeNav: '/navigation/closeNav',
+      closeNav: 'navigation/closeNav',
     })
   }
   

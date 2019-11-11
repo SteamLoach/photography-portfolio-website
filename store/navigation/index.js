@@ -1,6 +1,6 @@
 export const state = () => ({
   
-  reference: "menus",
+  reference: "navigation",
   
   primaryNavigation: {  
     'is-active': false,

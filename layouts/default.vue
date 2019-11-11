@@ -57,7 +57,7 @@ export default {
     
     .navigation-toggle {
       z-index: 10;
-      position: absolute;
+      position: fixed;
         right: 0;
       @include margin-scale(
         xy,
