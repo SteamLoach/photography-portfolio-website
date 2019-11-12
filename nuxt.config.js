@@ -1,8 +1,17 @@
+import { CMSConfig } from './cms/cms.config.js';
+import { CMS_Routes } from './cms/cmsRoutes.js';
+
 
 export default {
   mode: 'universal',
    generate: {
+     
+    routes: function() {
+      return CMS_Routes('album', 'albums');
+    },
+     
     dir: 'dist'
+     
   },
   
   router: {
@@ -54,7 +63,7 @@ export default {
      '@nuxtjs/style-resources' 
   ],
   kenticocloud: {
-    projectId: '8bf54db4-daf0-000d-4c5f-f48ee0f2fafb',
+    projectId: CMSConfig.ProjectID,
     enableAdvancedLogging: false,
     previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
   },

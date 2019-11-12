@@ -23,7 +23,7 @@
         </a>
       </li>
     </ul>
-    
+        
   </section>
 
 </template>
@@ -43,7 +43,8 @@ export default {
     },
     classExtensions: function() {
       return this.$store.state.navigation.primaryNavigation;
-    }
+    },
+        
   },
   
   methods: {

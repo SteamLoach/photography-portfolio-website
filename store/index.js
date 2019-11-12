@@ -25,6 +25,12 @@ export const actions = {
       module: 'cms',
       splitItems: false
     });
+    await dispatch('cms/getContentByModel', {
+      model: 'nav_link',
+      mutation: 'cms/resolveToStore',
+      module: 'cms',
+      splitItems: false
+    });
   },
 }
 

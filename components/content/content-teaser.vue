@@ -10,7 +10,7 @@
       <div class="content-description">
         <h2> {{ item.title }} </h2>
         <p> {{ item.teaser }} </p>
-        <button @click="setContent({target: `active${contentType}`, item: item.title})"> See More </button>
+        <button> See More </button>
       </div>
         
     </article>
@@ -22,24 +22,13 @@
 
 <script>
 
-import {mapMutations} from 'vuex'; 
   
 export default {
   
   props: ['content', 'contentType'],
   
-  methods: {
-    ...mapMutations({
-      setContent: 'rendering/setContent'
-    })
-  }
-  
 }
   
-  
-  
-
-
 </script>
 
 
