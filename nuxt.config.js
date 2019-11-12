@@ -1,17 +1,20 @@
 import { CMSConfig } from './cms/cms.config.js';
-import { CMS_Routes } from './cms/cmsRoutes.js';
 
+import axios from 'axios';
 
 export default {
   mode: 'universal',
-   generate: {
+  
+  generate: {
      
-    routes: function() {
-      return CMS_Routes('album', 'albums');
+    routes: async () => {
+      let { data } = await axios.get(`${CMSConfig.ProjectSource}/${CMSConfig.ProjectID}/items?system.type=album`)
+        return data.items.map((item) => {
+          return `album/${item.system.codename}` ; 
+        })
     },
-     
-    dir: 'dist'
-     
+  
+    dir: 'dist'   
   },
   
   router: {

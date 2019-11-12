@@ -7,14 +7,7 @@ import { CMSConfig } from './cms.config.js';
 //target
 
 
-export const CMS_Routes = function(model, component) {
-  return axios.get(`${CMSConfig.ProjectSource}/${CMSConfig.ProjectID}/items?system.type=${model}`)
-    .then((res) => {
-      return res.items.map((item) => {
-        return `${component}/${item.system.codename}`;
-      })
-    })
-}
+//export const CMS_Routes = function(model) {}
 
 export const CMS_StoreContent = {
   computed: {
