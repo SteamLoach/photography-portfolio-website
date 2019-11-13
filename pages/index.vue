@@ -119,6 +119,7 @@ export default {
       font-weight: 300;
     }
     p {padding-bottom: $space-medium;}
+    @include border-from($tablet, left);
   }
   
   .album-counter {
@@ -128,7 +129,7 @@ export default {
     @include content-card(light);
     font-size: 1rem;
     color: $offset-font-color;
-    background-color: $shade-darker;
+    background-color: $brand-accent;
   }
   
   .next-album {
@@ -138,7 +139,7 @@ export default {
       left: 0;
     display: inline-block;
     @include content-card(light);
-    background-color: $shade-darkest;
+    background-color: $brand-accent;
     &:hover {cursor: pointer;}
   }
   

@@ -2,7 +2,7 @@
 
   <section class="content-teaser-wrapper">
   
-    <article v-for="item in content"
+    <article v-for="item in Content"
              class="content-teaser">
       <div class="content-cover-image"
            :style="$setBackgroundImage(item.images[0].image[0].url)"></div>
@@ -10,7 +10,9 @@
       <div class="content-description">
         <h2> {{ item.title }} </h2>
         <p> {{ item.teaser }} </p>
-        <button> See More </button>
+        <nuxt-link :to="`${item.componentReference}s/${item.codename}`">
+          <button class="content-cta">View {{item.componentReference}}</button>
+        </nuxt-link> 
       </div>
         
     </article>
@@ -25,7 +27,7 @@
   
 export default {
   
-  props: ['content', 'contentType'],
+  props: ['Content'],
   
 }
   
@@ -52,7 +54,7 @@ export default {
     @include margin-until($laptop, left, $space-lightest);
     
     
-    border-left: 2px solid #000;
+    border-left: $standard-border;
     
     .content-cover-image {
       @include height-scale(
@@ -70,6 +72,10 @@ export default {
         max-width: 768px;
         padding-bottom: $space-light;}
       }
+    
+    .content-cta {
+      text-transform: capitalize;
+    }
   }
 
 </style>

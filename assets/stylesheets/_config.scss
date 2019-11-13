@@ -2,13 +2,10 @@
 
 $primary-font: 'PT Sans', sans-serif;
 
-$border-color: #000;
-
-
-
-
-
-
+//Theme
+$brand-1: #000;
+$brand-accent: $shade-darkest;
+$standard-border: 2px solid $brand-1;
 
 //components
 $card-is-shadowed: false;

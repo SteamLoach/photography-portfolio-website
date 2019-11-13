@@ -9,7 +9,7 @@ import { CMSConfig } from './cms.config.js';
 
 //export const CMS_Routes = function(model) {}
 
-export const CMS_StoreContent = {
+export const _ContentFromStore = {
   computed: {
     Content: function() {
       return this.$store.state.cms[this.$toCamel(this.contentType)]

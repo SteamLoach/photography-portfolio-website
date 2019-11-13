@@ -129,7 +129,7 @@ export default {
       font-weight: 600;
       
       &.nuxt-link-exact-active {
-        border-bottom: 2px solid $border-color;
+        border-bottom: $standard-border;
       }
     }
         

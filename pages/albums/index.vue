@@ -4,9 +4,7 @@
     
     <h1>Albums</h1>
         
-    <content-teaser :content="Albums"
-                    :contentType="'Album'">
-    </content-teaser>
+    <content-teaser :Content="Albums"></content-teaser>
     
   </main>
     

@@ -1,5 +1,4 @@
-import { CMSConfig } from './cms/cms.config.js';
-
+import { CMS } from './cms/cms.config.js';
 import axios from 'axios';
 
 export default {
@@ -8,9 +7,9 @@ export default {
   generate: {
      
     routes: async () => {
-      let { data } = await axios.get(`${CMSConfig.ProjectSource}/${CMSConfig.ProjectID}/items?system.type=album`)
+      let { data } = await axios.get(`${CMS.URL}/${CMS.KEY}/items?system.type[in]=${CMS._ROUTES.join()}`)
         return data.items.map((item) => {
-          return `album/${item.system.codename}` ; 
+          return `${item.system.type}s/${item.system.codename}` ; 
         })
     },
   
@@ -66,7 +65,7 @@ export default {
      '@nuxtjs/style-resources' 
   ],
   kenticocloud: {
-    projectId: CMSConfig.ProjectID,
+    projectId: CMS.KEY,
     enableAdvancedLogging: false,
     previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
   },
