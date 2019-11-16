@@ -8,7 +8,7 @@ export default {
             .then(response => {
               context.commit(options.mutation, {
                 output: response.item, 
-                target: this.$toCamel(options.codename)
+                target: this.$toCase.camel(options.codename)
               }, {root: true}) ;                    
             }) ; 
   },
@@ -24,17 +24,19 @@ export default {
                   response.items.forEach(item => {
                     context.commit(mutation, {
                       output: item,
-                      target: this.$toCamel(item.system.codename)
+                      target: this.$toCase.camel(item.system.codename)
                     }, {root: true}) ; 
                   }) ;
                 } else {
                     context.commit(mutation, {
                       output: response.items,
-                      target: this.$toCamel(`${model}s`),
+                      target: this.$toCase.camel(`${model}`),
                       asArray: true
                     }, {root: true}) ;
                 }
               });
   },
 }
+
+
   

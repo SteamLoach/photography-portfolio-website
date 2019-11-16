@@ -88,3 +88,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# CMS Developer Keys
+cms.config.js

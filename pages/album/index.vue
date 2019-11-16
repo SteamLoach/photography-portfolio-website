@@ -1,10 +1,11 @@
 <template>
 
-  <main class="albums-page">
+  <main class="catagory-page">
     
     <h1>Albums</h1>
         
-    <content-teaser :Content="Albums"></content-teaser>
+    <content-teaser :Content="Albums"
+                    :contentType="'album'"></content-teaser>
     
   </main>
     
@@ -17,7 +18,7 @@ export default {
     
   computed: {
     Albums: function() {
-      return this.$store.state.cms.albums;
+      return this.$store.state.cms.album;
     },
   },  
 }

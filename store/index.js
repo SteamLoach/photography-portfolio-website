@@ -9,6 +9,7 @@ export const state = () => ({
 export const actions = {
   
   async nuxtServerInit ({dispatch}) {
+    
     await dispatch('cms/getContentByCodename', {
       codename: 'primary_navigation',
       mutation: 'cms/resolveToStore',
@@ -26,13 +27,36 @@ export const actions = {
       splitItems: false
     });
     await dispatch('cms/getContentByModel', {
-      model: 'nav_link',
+      model: 'blog',
       mutation: 'cms/resolveToStore',
       module: 'cms',
       splitItems: false
     });
+    
   },
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

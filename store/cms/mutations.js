@@ -3,7 +3,7 @@ export default {
 //Set individual page content 
   resolveToStore(state, content) {
     
-    state[`${content.target}Blob`] = content.output ;
+    state[`${content.target}_Blob`] = content.output ;
     
     if (content.asArray) {
       state[content.target] = content.output.map(item => {
@@ -17,6 +17,6 @@ export default {
     }
      
   },
-  
+    
 }
 

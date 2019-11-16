@@ -1,21 +1,10 @@
 import { CMS } from './cms/cms.config.js';
+import { toCase } from './plugins/utils.js';
 import axios from 'axios';
 
 export default {
   mode: 'universal',
-  
-  generate: {
-     
-    routes: async () => {
-      let { data } = await axios.get(`${CMS.URL}/${CMS.KEY}/items?system.type[in]=${CMS._ROUTES.join()}`)
-        return data.items.map((item) => {
-          return `${item.system.type}s/${item.system.codename}` ; 
-        })
-    },
-  
-    dir: 'dist'   
-  },
-  
+    
   router: {
     base: process.env.DEPLOY_ENV === 'STATIC' ? '/photography-portfolio-website/' : '/'
   },
@@ -50,7 +39,7 @@ export default {
   plugins: [
     '~/plugins/masterResolver.js',
     '~/plugins/globalComponents.js',
-    '~/plugins/helperFunctions.js'
+    '~/plugins/utils.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -75,6 +64,20 @@ export default {
   /*
   ** Build configuration
   */
+  generate: {
+     
+    routes: async () => {
+      let { data } = await axios.get(`${CMS.URL}/${CMS.KEY}/items?system.type[in]=${CMS._ROUTES.join()}`)
+
+        return data.items.map((item) => {              
+          return `${toCase.kebab(item.system.type)}/${toCase.kebab(item.system.codename)}` ; 
+        })
+    },
+  
+    dir: 'dist'
+    
+  },
+  
   build: {
     /*
     ** You can extend webpack config here
@@ -83,3 +86,27 @@ export default {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

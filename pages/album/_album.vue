@@ -1,12 +1,12 @@
 <template>
 
-<article>
+<main>
     <h1> {{Content.title}} </h1>
     <p> {{Content.teaser}} </p>
-    <p> {{Content.text}} </p>
+    <article v-html="Content.text"></article>
     <img v-for="img in Content.images"
-       :src="img.image[0].url">
-</article>
+       :src="img.image.url">
+</main>
 
 </template>
 
@@ -21,7 +21,7 @@ export default {
   
   data() {
     return {
-     contentType: 'albums', 
+     contentType: 'album', 
     }
   },  
 }

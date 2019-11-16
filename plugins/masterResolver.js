@@ -1,11 +1,4 @@
-//Converts object keys to camel case
-const toCamel = (s) => {
-  return s.replace(/([-_][a-z])/ig, ($1) => {
-    return $1.toUpperCase()
-      .replace('-', '')
-      .replace('_', '');
-  });
-};
+import { toCase } from './utils.js';
 
 const masterResolver = (contentModel, counter) => {
   
@@ -14,8 +7,8 @@ const masterResolver = (contentModel, counter) => {
   
   //Helper function to store and extend resolved content
   const resolve = (key, content) => {
-        resolvedModel[toCamel(key)] = content ;
-        resolvedModel.componentReference = toCamel(contentModel.system.type) ;
+        resolvedModel[toCase.camel(key)] = content ;
+        resolvedModel.componentReference = toCase.camel(contentModel.system.type) ;
         (counter > 0) ? resolvedModel.key = counter : '' ; 
   } ; 
   
@@ -30,18 +23,32 @@ const masterResolver = (contentModel, counter) => {
           let type = contentModel[key].type ;
           let counter = 0 ;
           
-          if (type === 'text' || type === 'rich_text') {
+          if (type === 'text' || type === 'rich_text' || type === 'url_slug') {
             resolve(key, contentModel[key].value) ; 
           }
           else if (type === 'asset') {
-            resolve(key, contentModel[key].value.map(asset => {
-              return {
-                url: asset.url,
-                name: asset.name,
-                description: asset.description,
-                key: (contentModel[key].value.indexOf(asset) + 1)
-              } 
-            })) ; 
+            
+            if (contentModel[key].value.length === 1) {
+              
+              let asset = contentModel[key].value[0];
+              let image = {
+                  url: asset.url,
+                  name: asset.name,
+                  description: asset.description,
+                }
+              resolve(key, image)
+            }
+            else {
+              resolve(key, contentModel[key].value.map(asset => {
+                return {
+                  url: asset.url,
+                  name: asset.name,
+                  description: asset.description,
+                  key: (contentModel[key].value.indexOf(asset) + 1)
+                } 
+              })) ;
+            }
+  
           }
           else if (type === 'multiple_choice') {
             let optionsObject = {} ; 
@@ -68,10 +75,6 @@ const masterResolver = (contentModel, counter) => {
 
 } ;
 
-
-
-
 export default ({app}, inject) => {
   inject('masterResolver', masterResolver) ;
-  inject('toCamel', toCamel) ;
 }

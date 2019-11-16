@@ -67,4 +67,14 @@ export default {
     }
   }
   
+  .catagory-page {
+    h1 {
+      @include pad-scale(
+        xy,
+        $default: $space-light,
+        $on-tablet: $space-medium,
+      );    
+    }
+  }
+  
 </style>

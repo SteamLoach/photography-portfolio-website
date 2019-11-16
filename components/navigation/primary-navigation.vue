@@ -4,11 +4,11 @@
            :class="classExtensions">
   
     <a class="site-logo" href="/">
-      <img :src="Settings.logo[0].url">
+      <img :src="Settings.logo.url">
     </a>
     
     <ul class="nav-link-wrapper">
-      <li class="menu-icon"><img :src="Content.menuIcon[0].url"></li>
+      <li class="menu-icon"><img :src="Content.menuIcon.url"></li>
       <li v-for ="navLink in Content.navLinks">
         <span @click="closeNav">
           <nuxt-link :to="navLink.route">{{ navLink.title }}</nuxt-link>

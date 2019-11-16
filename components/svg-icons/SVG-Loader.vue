@@ -21,7 +21,7 @@ export default {
   
   computed: {
     iconComponent: function() {
-      return this.$toCamel(this.icon) ; 
+      return this.$toCase.camel(this.icon) ; 
     }
   },
   

@@ -59,6 +59,12 @@
 /****PANELS****/
 /****DEPRECIATE THIS****/
 /****CARDS****/
+button {
+  font-size: 1rem;
+  color: #000;
+  border: 2px solid #000;
+}
+
 html {
   font-family: "PT Sans", sans-serif;
   font-size: 22px;
