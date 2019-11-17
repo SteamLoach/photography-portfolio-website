@@ -23,7 +23,7 @@ const masterResolver = (contentModel, counter) => {
           let type = contentModel[key].type ;
           let counter = 0 ;
           
-          if (type === 'text' || type === 'rich_text' || type === 'url_slug') {
+          if (type === 'text' || type === 'rich_text' || type === 'date_time' || type === 'url_slug') {
             resolve(key, contentModel[key].value) ; 
           }
           else if (type === 'asset') {
@@ -50,12 +50,17 @@ const masterResolver = (contentModel, counter) => {
             }
   
           }
+      
           else if (type === 'multiple_choice') {
-            let optionsObject = {} ; 
-            contentModel[key].options.forEach(option => {
+            if (contentModel[key].name === "Permalink Prefix") {
+              resolve(key, contentModel[key].value[0].name);    
+            } else {
+              let optionsObject = {} ;
+              contentModel[key].value.forEach(option => {
               optionsObject[option.name] = true ;
             }) ; 
-            resolve(key, optionsObject) ; 
+            resolve(key, optionsObject) ;           
+            }
           }
           
           else if (type === 'modular_content') {

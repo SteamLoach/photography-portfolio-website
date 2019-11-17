@@ -8,7 +8,10 @@
         <h1> {{Content.title}} </h1>
       </div>
     </div>
-    
+    <content-byline
+                    :author="Content.author"
+                    :date="Content.publishDate">
+    </content-byline>
     <article v-html="Content.text"
              class="post-body"></article>
 </main>
@@ -40,6 +43,16 @@ export default {
   .blog-post {
     @include row(start, center);
     @include border-from($tablet, left, $standard-border);
+    
+    .content-byline {
+      @include pad-scale(
+        left,
+        $default: $space-lighter,
+        $on-lrg-mobile: $space-light,
+        $on-tablet: $space-medium,
+      );
+      margin-bottom: $outer-space-lightest;
+    }
   }
   
   .cover-image {
@@ -74,6 +87,8 @@ export default {
     }
       
   }
+  
+
   
   .post-body {
     max-width: 1024px;

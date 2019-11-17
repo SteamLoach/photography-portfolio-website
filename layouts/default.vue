@@ -40,9 +40,7 @@ export default {
     ...mapMutations({
       toggleNav: 'navigation/toggleNav'
     })
-  }
-  
-  
+  } 
 }
 
 
@@ -66,6 +64,15 @@ export default {
       );
     }
   }
+  
+  h2 {
+    @include font-size-scale(
+      $default: 1.8rem,
+      $on-tablet: 2.2rem,
+    );
+    font-weight: 300;
+  }
+  
   
   .catagory-page {
     h1 {

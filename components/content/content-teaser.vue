@@ -19,8 +19,12 @@
 
         <div class="content-description">
           <h2> {{ item.title }} </h2>
+          <content-byline 
+                          :author="item.author" 
+                          :date="item.publishDate">
+        </content-byline>
           <p> {{ item.teaser }} </p>
-          <nuxt-link :to="`${contentType}/${item.codename}`">
+          <nuxt-link :to="`${contentType}/${$toCase.kebab(item.codename)}`">
             <button class="content-cta">View {{contentType}}</button>
           </nuxt-link> 
         </div>
@@ -40,7 +44,7 @@
 export default {
   
   props: ['Content', 'contentType'],
-  
+      
 }
   
 </script>
@@ -86,6 +90,8 @@ export default {
       @include content-card(light);
       font-size: 1rem;
     }
+    
+
     
     .content-cta {
       text-transform: capitalize;

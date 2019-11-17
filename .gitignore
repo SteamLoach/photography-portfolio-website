@@ -90,4 +90,4 @@ sw.*
 *.swp
 
 # CMS Developer Keys
-cms.config.js
+./cms/cms.config.js

@@ -28,10 +28,14 @@ const setBackgroundImage = function(url) {
   return {backgroundImage: `url('${url}')` } ; 
 }
 
+const dateString = function(str) {
+  return new Date(str).toDateString();
+}
 
 
 //Component Only
 Vue.prototype.$setBackgroundImage = setBackgroundImage;
+Vue.prototype.$dateString = dateString;
 
 //Context Injection
 export default ({app}, inject) => {

@@ -123,10 +123,7 @@ export default {
     );
     
     @include content-card(medium);
-    h2 {
-      font-size: 2.6rem;
-      font-weight: 300;
-    }
+
     @include border-from($tablet, left);
   }
   
