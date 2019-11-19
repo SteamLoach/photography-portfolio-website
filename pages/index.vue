@@ -75,17 +75,7 @@ export default {
     }
     
   },
-  
-/**
-  methods: {
-    nextAlbum: function() {
-      this.currentAlbum += 1;
-      if (this.currentAlbum >= this.Albums.length) {
-        this.currentAlbum = 0;
-      }
-    }
-    **/  
-  
+    
 }
   
   

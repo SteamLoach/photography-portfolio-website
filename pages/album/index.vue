@@ -28,16 +28,5 @@ export default {
 
 <style lang="scss">
 
-  .albums-page {
-    
-    h1 {
-      @include pad-scale(
-        xy,
-        $default: $space-light,
-        $on-tablet: $space-medium,
-      );    
-    }
-    
-  }
 
 </style>

@@ -48,7 +48,7 @@ export default {
 
 
 <style lang="scss">
-    
+  
   .body-content {
     @extend %body-content-scale;
     margin-left: auto;
@@ -65,12 +65,23 @@ export default {
     }
   }
   
-  h2 {
+  h1, h2 {
     @include font-size-scale(
       $default: 1.8rem,
       $on-tablet: 2.2rem,
     );
     font-weight: 300;
+  }
+  
+  button {
+    font-size: 1rem;
+    color: $brand-1;
+    border: $standard-border;
+
+    &:hover {
+      color: $offset-font-color;
+      background-color: $brand-1;
+    }
   }
   
   
