@@ -4,9 +4,6 @@
     
     <div class="cover-image"
          :style="$setBackgroundImage(Content.coverImage.url)">
-      <div class="title-wrapper">
-        <h1> {{Content.title}} </h1>
-      </div>
     </div>
     <content-byline
                     :author="Content.author"
@@ -59,7 +56,7 @@ export default {
     @include height-scale(
       $default: 55vh,
       $on-tablet: 50vh,
-      $on-laptop: 55vh
+      $on-laptop: 60vh
     );
     width: 100%;
     @include margin-scale(
@@ -67,25 +64,6 @@ export default {
       $default: $outer-space-lighter,
     );
     @include centered-background();
-    
-    .title-wrapper {
-      height: 100%;
-      @include row(center, center);
-
-      text-align: center;
-      background-image: linear-gradient(rgba($brand-1,0),rgba($brand-1,0.8), rgba($brand-1,0));
-      
-      h1 {
-        width: 90%;
-        @include font-size-scale(
-          $default: 1.6rem,
-          $on-tablet: 2.6rem,
-          $on-laptop: 3.2rem
-          );
-        color: $offset-font-color;
-      } 
-    }
-      
   }
   
 
@@ -99,17 +77,14 @@ export default {
       $on-tablet: $space-medium,
     );
     @extend %standard-flow;
+    font-size: 0.8rem;
     
     img {
-      @include column-scale(
-        $default: 22,
-        $on-laptop: 18,
-      );
-      @include x-margin(auto);
       border-radius: $border-radius;
       @include under-shadow();
     }
   }
+  
 
 </style>
 

@@ -72,6 +72,7 @@ export default {
     );
     font-weight: 300;
   }
+  h3 {font-weight: 500;}
   
   button {
     font-size: 1rem;

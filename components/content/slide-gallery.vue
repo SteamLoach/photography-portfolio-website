@@ -1,10 +1,13 @@
 <template>
 
   <section class="slide-gallery">
+  
+  <light-box :src="images[mxn_counter].image.url"></light-box>
     
     <div class="image-aperture">
       <div class="image-strip"
-           :style="stripPosition">
+           :style="stripPosition"
+           @click="openLightBox">
         <div v-for="item in images"
              :style="$setBackgroundImage(item.image.url)"
              class="image-slide"></div>
@@ -31,6 +34,7 @@
 
 <script>
 
+import {mapMutations} from 'vuex'; 
 import { traverseArray } from '~/mixins/traverseArray.js';
   
 export default {
@@ -54,6 +58,12 @@ export default {
     stripPosition: function() {
       return `left: -${this.mxn_counter * 100}%`
     }
+  },
+  
+  methods: {
+    ...mapMutations({
+      openLightBox: 'utils/openLightBox',
+    })
   }
   
 }
@@ -69,7 +79,7 @@ export default {
     @include height-scale(
       $default: 70vh,
       $on-tablet: 80vh,
-      $on-laptop: 60vh,
+      $on-laptop: 65vh,
       $on-desktop: 80vh,
     );
     @include column-scale(
@@ -95,7 +105,9 @@ export default {
     width: 100%;
     @include standard-transition(
       $duration: 0.8s,
+      $function: ease-out,
     );
+    &:hover {cursor: pointer;}
   }
   
   .image-slide {

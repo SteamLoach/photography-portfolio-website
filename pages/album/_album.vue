@@ -73,10 +73,7 @@ export default {
 
   .album-page {
     @include row(start, start);
-    @include pad-scale(
-      top,
-      $on-desktop: $space-heavy,
-    );
+    flex-wrap: wrap;
     border-left: $standard-border;
     h3 {font-weight: 300;}
   }
@@ -85,6 +82,10 @@ export default {
     @include column-scale(
       $default: 24,
       $on-desktop: 12,
+    );
+    @include margin-scale(
+      top,
+      $on-desktop: $outer-space-heavier,
     );
     
     .album-info {
@@ -147,8 +148,6 @@ export default {
     @extend %standard-flow;
     font-size: 0.8rem;
     img {
-      @include x-margin(auto);
-      max-width: 75%;
       @include under-shadow();
       border-radius: $border-radius;
     }

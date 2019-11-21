@@ -4,7 +4,7 @@
            :class="classExtensions">
   
     <a class="site-logo" href="/">
-      <img :src="Settings.logo.url">
+      <svg-loader :icon="'photo-camera'"></svg-loader>
     </a>
     
     <ul class="nav-link-wrapper">
@@ -102,6 +102,12 @@ export default {
         bottom, 
         $default: $outer-space-heavy
       );
+      .svg-icon {
+        height: 4rem;
+        width: 4rem;
+        fill: $brand-1;
+        .svg-icon-accent {fill: $brand-accent;}
+      }
     }
     
     .nav-link-wrapper,
@@ -136,7 +142,7 @@ export default {
     .svg-icon {
       width: $space-light;
       height: $space-light;
-      fill: #000;
+      fill: $brand-1;
       .svg-icon-accent {fill: $page-background;}
     }
     

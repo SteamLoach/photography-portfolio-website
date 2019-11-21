@@ -54,9 +54,9 @@ export default {
       return this.$store.state.cms.album;
     },
     coverImage: function() {
-      return this.$setBackgroundImage(
+      return this.$setBackgroundImage(`${
         this.Albums[this.mxn_counter]
-          .images[0].image.url
+          .images[0].image.url}?q=45`
       );
     },
     nextAlbumTeaser: function() {
@@ -64,9 +64,9 @@ export default {
       if (nextAlbum >= this.Albums.length) {
         nextAlbum = 0;
       }
-      return this.$setBackgroundImage(
+      return this.$setBackgroundImage(`${
         this.Albums[nextAlbum]
-          .images[0].image.url
+          .images[0].image.url}?q=25`
       );
     },
     

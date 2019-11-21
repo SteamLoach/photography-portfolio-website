@@ -15,6 +15,12 @@ import instagramIcon from './social/instagram-icon.vue';
 import pinterestIcon from './social/pinterest-icon.vue';
 import twitterIcon from './social/twitter-icon.vue';
   
+//General
+import photoCamera from './general/photo-camera.vue';
+
+//Utils
+import closeButton from './utils/close-button.vue';
+  
 export default {
   
   props: ['icon'],
@@ -29,7 +35,9 @@ export default {
     facebookIcon,
     instagramIcon,
     pinterestIcon,
-    twitterIcon
+    twitterIcon,
+    photoCamera,
+    closeButton,
   }
   
 }
