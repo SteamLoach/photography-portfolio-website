@@ -1,7 +1,8 @@
 <template>
 
   <div class="lightbox-outer"
-       :class="state">
+       :class="state"
+       @click="closeLightBox">
     
     <div class="lightbox-close"
          @click="closeLightBox">
@@ -10,7 +11,7 @@
       
     <div class="lightbox-inner">
   
-      <img :src="src"/>
+      <img :src="`${src}?w=2048`"/>
       
     </div>
   
@@ -56,13 +57,6 @@ export default {
       left: 0;
     height: 0%;
     width: 0%;
-    @include pad-scale(
-      xy,
-      $default: $space-lighter,
-      $on-phablet: $space-light,
-      $on-laptop: $space-medium,
-      $on-desktop: $space-heaviest,
-    );
     background-color: rgba($brand-1, 0.9);
     @include standard-transition();
     
@@ -71,6 +65,13 @@ export default {
       opacity: 1;
       height: 100%;
       width: 100%;
+      @include pad-scale(
+      xy,
+      $default: $space-lighter,
+      $on-phablet: $space-light,
+      $on-laptop: $space-medium,
+      $on-desktop: $space-heaviest,
+    );
     }
   }
   

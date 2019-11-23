@@ -56,7 +56,7 @@ export default {
     coverImage: function() {
       return this.$setBackgroundImage(`${
         this.Albums[this.mxn_counter]
-          .images[0].image.url}?q=45`
+          .images[0].image.url}?w=2048&q=50`
       );
     },
     nextAlbumTeaser: function() {
@@ -66,7 +66,7 @@ export default {
       }
       return this.$setBackgroundImage(`${
         this.Albums[nextAlbum]
-          .images[0].image.url}?q=25`
+          .images[0].image.url}?w=250`
       );
     },
     

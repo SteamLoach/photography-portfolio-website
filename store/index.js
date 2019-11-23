@@ -32,6 +32,11 @@ export const actions = {
       module: 'cms',
       splitItems: false
     });
+    await dispatch('cms/getContentByCodename', {
+      codename: 'contact_form',
+      mutation: 'cms/resolveToStore',
+      module: 'cms',
+    });
     
   },
 }
