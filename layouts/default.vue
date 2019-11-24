@@ -7,7 +7,7 @@
     <!--Body Content-->
     <section class="body-content">
       <span class="navigation-toggle"
-            @click="toggleNav">
+            @click="isActiveToggle('primaryNavigation')">
         <navigation-toggle :state="navState">Menu</navigation-toggle>
       </span>
       <nuxt />
@@ -18,12 +18,14 @@
 
 <script>
 
-import {mapMutations} from 'vuex'; 
+import {isActive} from '~/mixins/isActive.js';
   
 import primaryNavigation from '~/components/navigation/primary-navigation.vue'
 import navigationToggle from '~/components/navigation/navigation-toggle.vue'
 
 export default {
+  
+  mixins: [isActive],
   
   components: {
     primaryNavigation,
@@ -32,15 +34,9 @@ export default {
   
   computed: {
     navState: function() {
-      return this.$store.state.navigation.primaryNavigation;
+      return this.$store.state.utils.primaryNavigation;
     }
   },
-  
-  methods: {
-    ...mapMutations({
-      toggleNav: 'navigation/toggleNav'
-    })
-  } 
 }
 
 

@@ -2,10 +2,10 @@
 
   <div class="lightbox-outer"
        :class="state"
-       @click="closeLightBox">
+       @click="isActive({target: 'lightBox', state: false})">
     
     <div class="lightbox-close"
-         @click="closeLightBox">
+         @click="isActive({target: 'lightBox', state: false})">
       <svg-loader :icon="'close-button'"></svg-loader>
     </div>
       
@@ -22,9 +22,11 @@
 
 <script>
   
-import {mapMutations} from 'vuex'; 
+import {isActive} from '~/mixins/isActive.js';
 
 export default {
+  
+  mixins: [isActive],
   
   props: ['src'],
   
@@ -33,12 +35,6 @@ export default {
       return this.$store.state.utils.lightBox ;
     }
   },
-  
-  methods: {
-    ...mapMutations({
-      closeLightBox: 'utils/closeLightBox',
-    })
-  }
   
   
 }

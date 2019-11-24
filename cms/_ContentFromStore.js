@@ -1,13 +1,6 @@
 import axios from 'axios';
 import { CMSConfig } from './cms.config.js';
 
-//args:
-//projectId
-//type or codename
-//target
-
-//export const CMS_Routes = function(model) {}
-
 export const _ContentFromStore = {
   computed: {
     Content: function() {

@@ -7,7 +7,7 @@
     <div class="image-aperture">
       <div class="image-strip"
            :style="stripPosition"
-           @click="openLightBox">
+           @click="isActive({target: 'lightBox', state: true})">
         <div v-for="item in images"
              :style="$setBackgroundImage(item.image.url)"
              class="image-slide"></div>
@@ -34,12 +34,12 @@
 
 <script>
 
-import {mapMutations} from 'vuex'; 
+import {isActive} from '~/mixins/isActive.js';
 import { traverseArray } from '~/mixins/traverseArray.js';
   
 export default {
   
-  mixins: [traverseArray],
+  mixins: [isActive, traverseArray],
   
   props: ['images'],
   
@@ -59,12 +59,6 @@ export default {
       return `left: -${this.mxn_counter * 100}%`
     }
   },
-  
-  methods: {
-    ...mapMutations({
-      openLightBox: 'utils/openLightBox',
-    })
-  }
   
 }
 

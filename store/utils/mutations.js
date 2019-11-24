@@ -1,12 +1,11 @@
 export default {  
-  
-    openLightBox(state) {
-      state.lightBox['is-active'] = true;
+    
+    isActive(state, dir) {
+      state[dir.target]['is-active'] = dir.state;
     },
   
-    closeLightBox (state) {
-      state.lightBox['is-active'] = false;
+    isActiveToggle(state, target) {
+      state[target]['is-active'] = !state[target]['is-active'] ;
     }
-    
   
 }

@@ -10,7 +10,7 @@
     <ul class="nav-link-wrapper">
       <li class="menu-icon"><img :src="Content.menuIcon.url"></li>
       <li v-for ="navLink in Content.navLinks">
-        <span @click="closeNav">
+        <span @click="isActive({target: 'primaryNavigation', state: false})">
           <nuxt-link :to="navLink.route">{{ navLink.title }}</nuxt-link>
         </span>
       </li>
@@ -30,9 +30,11 @@
 
 <script>
 
-import {mapMutations} from 'vuex'; 
+import {isActive} from '~/mixins/isActive.js';
   
 export default {
+  
+  mixins: [isActive],
   
   computed: {
     Content: function() {
@@ -42,16 +44,10 @@ export default {
       return this.$store.state.cms.siteSettings;
     },
     classExtensions: function() {
-      return this.$store.state.navigation.primaryNavigation;
+      return this.$store.state.utils.primaryNavigation;
     },
         
   },
-  
-  methods: {
-    ...mapMutations({
-      closeNav: 'navigation/closeNav',
-    })
-  }
   
 }
 
