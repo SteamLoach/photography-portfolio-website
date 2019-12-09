@@ -2,14 +2,13 @@
 
   <section class="slide-gallery">
   
-  <light-box :src="images[mxn_counter].image.url"></light-box>
-    
+    <!-- Slide Gallery -->
     <div class="image-aperture">
       <div class="image-strip"
            :style="stripPosition"
            @click="isActive({target: 'lightBox', state: true})">
         <div v-for="item in images"
-             :style="$setBackgroundImage(item.image.url)"
+             :style="$setBackgroundImage(`${item.image.url}?w=2048&q=50`)"
              class="image-slide"></div>
       </div>
     </div>
@@ -25,6 +24,30 @@
         <img src="~/assets/right-arrow-white.webp">
       </div>
     </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox-outer"
+       :class="lightboxState">
+    
+    <div class="lightbox-close"
+         @click="isActive({target: 'lightBox', state: false})">
+      <svg-loader :icon="'close-button'"></svg-loader>
+    </div>
+      
+    <div class="lightbox-inner">
+      <img :src="`${mxn_traverseArray[mxn_counter].image.url}?q=40&w=1248`"/>
+    </div>
+      
+    <div class="lightbox-next" 
+         @click="traverseUp">
+      <span>&#8250;</span>
+    </div>
+    <div class="lightbox-previous" 
+         @click="traverseDown">
+      <span>&#8249;</span>
+    </div>
+  
+  </div>
   
   </section>
   
@@ -57,6 +80,9 @@ export default {
     
     stripPosition: function() {
       return `left: -${this.mxn_counter * 100}%`
+    },
+    lightboxState: function() {
+      return this.$store.state.utils.lightBox ;
     }
   },
   
@@ -134,6 +160,84 @@ export default {
   
   .next-image {background-color: $brand-accent;}
   .previous-image {background-color: $page-background;}
+  
+  
+  ////Lightbox
+  
+  .lightbox-outer {
+    z-index: 999;
+    overflow: hidden;
+    position: fixed;
+    opacity: 0; 
+      top: 0;
+      left: 0;
+    height: 0%;
+    width: 0%;
+    background-color: rgba($brand-1, 0.9);
+    @include standard-transition();
+    
+    &.is-active {
+      display: block;
+      opacity: 1;
+      height: 100%;
+      width: 100%;
+      @include pad-scale(
+      xy,
+      $default: $space-lighter,
+      $on-phablet: $space-light,
+      $on-laptop: $space-medium,
+      $on-desktop: $space-heaviest,
+    );
+    }
+  }
+  
+  .lightbox-close {
+    z-index: 999;
+    position: absolute;
+      top: $space-light;
+      left: $space-light;
+    @include height-scale(
+      $default: 2rem,
+    );
+    @include custom-scale(
+      $default: 2rem,
+    );
+    &:hover {cursor: pointer;}
+    .svg-icon {
+      fill: $page-background;
+    }
+  }
+  
+  .lightbox-inner {
+    @include wrapper(center, center);
+    height: 100%;
+    width: 100%;
+    img {
+      border-radius: $border-radius;
+    }
+  }
+  
+  .lightbox-next,
+  .lightbox-previous {
+    z-index: 5;
+    position: absolute;
+    padding: $space-lighter;
+    @include font-size-scale(
+      $default: 4rem,
+      $on-tablet: 6rem,
+      $on-laptop: 8rem,
+    );
+    &:hover{cursor: pointer}
+  }
+  
+  .lightbox-next {
+    right: 0;
+    @include y-center-absolute();
+  }
+  .lightbox-previous {
+    left: 0;
+    @include y-center-absolute();
+  }
 
   
 </style>

@@ -9,7 +9,7 @@
       
         <div v-if="item.images"
              class="content-cover-image"
-             :style="$setBackgroundImage(`${item.images[0].image.url}?w=2048&q=50`)">
+             :style="$setBackgroundImage(`${item.images[0].image.url}?w=1024&q=50`)">
         </div>
 
         <div v-else

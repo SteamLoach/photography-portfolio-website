@@ -3,7 +3,7 @@
 <main class="blog-post">
     
     <div class="cover-image"
-         :style="$setBackgroundImage(`${Content.coverImage.url}?w=2048&q=50`)">
+         :style="$setBackgroundImage(`${Content.coverImage.url}?w=2048&q=40`)">
     </div>
     <content-byline
                     :author="Content.author"
